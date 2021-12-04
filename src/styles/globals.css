@@ -1,0 +1,40 @@
+@import url('https://bloomstack.github.io/styleguide/styleguide.css');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.search-input, .name, .population {
+  border: none;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color:var(--c-neutral-3) !important; 
+}
+
+.country-row {
+ transition: transform 200ms ease-in-out;
+}
+
+.country-row:hover {
+  transform: translateY(-6px);
+}
+
+button {
+  cursor: pointer;
+}
