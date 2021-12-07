@@ -35,6 +35,6 @@ a {
   transform: translateY(-6px);
 }
 
-button {
+button, .btn {
   cursor: pointer;
 }

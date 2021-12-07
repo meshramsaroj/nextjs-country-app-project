@@ -15,10 +15,6 @@ const Layout = ({ children, countries, title = "World Trace" }) => {
                 </section>
                 {children}
             </main>
-
-            <footer>
-                footer
-            </footer>
         </div>
     )
 }

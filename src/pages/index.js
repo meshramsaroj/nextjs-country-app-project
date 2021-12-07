@@ -5,28 +5,36 @@ import Layout from '../component/layout/layout'
 import CountriesTable from '../component/countriesTable/countriesTable'
 import { useState } from 'react';
 import SearchBar from '../component/searchbar/searchbar'
+import Pagination from  '../component/pagination/pagination'
 
 
 export default function Home({ countries }) {
   console.log(countries[0]);
   const [searchValue, setSearchValue] = useState('')
+  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesPerPage] = useState(10);
 
-  const filterCountires = countries.filter(country =>{
-    return country.name.common.toLowerCase().includes(searchValue)
-    // ||
-    // console.log(country.subregion)
-    // return country.region.toLowerCase().includes(searchValue) 
-    // ||
-    // return country.subregion.toLowerCase().includes(searchValue)
-}
-    )
+  const filterCountires = countries.filter(country => {
+    return country.name.common.toLowerCase().includes(searchValue) 
+    // || country.region.toLowerCase().includes(searchValue) || country.subregion.toLowerCase().includes(searchValue)
+  });
+
 
   const onInputChange = (e) => {
-    console.log(e.target.value)
     e.preventDefault();
     setSearchValue(e.target.value.toLowerCase())
-    console.log(searchValue)
   }
+
+  // Get current countries
+  const indexOfLastCountry = currentPage * countriesPerPage;
+  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+  const currentCountries = filterCountires.slice(indexOfFirstCountry, indexOfLastCountry)
+
+  // change page
+  const paginate = (number) => {
+    setCurrentPage(number)
+  }
+
 
   return (
     <Layout countries={countries}>
@@ -35,7 +43,8 @@ export default function Home({ countries }) {
           <SearchBar onChange={onInputChange}></SearchBar>
           <section className="t-right f-3 xs-f-caps fw-400 c-neutral-3 mv-20px pr-3">Found {countries.length} countries</section>
         </section>
-        <CountriesTable countries={filterCountires} />
+        <CountriesTable countries={currentCountries} />
+        <Pagination countriesPerPage={countriesPerPage} totalCountries={filterCountires.length} paginate={paginate} />
       </section>
     </Layout>
   )
