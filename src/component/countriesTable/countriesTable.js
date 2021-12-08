@@ -1,3 +1,4 @@
+import { Link } from "next/link"
 import KeyboardArrowDownRounded from "@material-ui/icons/KeyboardArrowDownRounded"
 import KeyboardArrowUpRounded from "@material-ui/icons/KeyboardArrowUpRounded"
 import { useState } from "react"
@@ -34,6 +35,7 @@ export const SortArrow = ({ direction }) => {
 
 
 const CountriesTable = ({ countries }) => {
+    console.log(countries);
     const [direction, setDirection] = useState();
     const [value, setValue] = useState();
     const orderByConuntire = orderBy(countries, value, direction)
@@ -64,13 +66,14 @@ const CountriesTable = ({ countries }) => {
             </div>
             <div>
                 {orderByConuntire.map((c, index) => (
-                    <div className="grid-3x1 bg-secondary elevate-1 round-1 mv-2 p-2 t-center c-neutral-2 f-2 fw-500 country-row" key={index}>
-                        <div className="t-left col-span-2">
-                            {c.name.common} 
-                            {/* || {c.region} || {c.subregion} */}
+                    <a href={`/country/${c.name.common}`} key={index}>
+                        <div className="grid-3x1 bg-secondary elevate-1 round-1 mv-2 p-2 t-center c-neutral-2 f-2 fw-500 country-row">
+                            <div className="t-left col-span-2">
+                                {c.name.common}
                             </div>
-                        <div className={c.population + ' t-left'}>{c.population}</div>
-                    </div>
+                            <div className={c.population + ' t-left'}>{c.population}</div>
+                        </div>
+                    </a>
                 ))}
             </div>
         </div>

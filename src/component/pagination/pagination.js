@@ -7,7 +7,7 @@ const Pagination = ({ countriesPerPage, totalCountries, paginate }) => {
     }
 
     return (
-        <div className="d-flex mv-2">
+        <div className="d-flex mv-2 overflow-x-auto">
             {pageNumber.map(number => (
                 <div key={number} className='btn btn-secondary mh-1h ph-1'>
                     <Link href='#' className="">
