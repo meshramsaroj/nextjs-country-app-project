@@ -13,7 +13,7 @@ const Layout = ({ children, countries, title = "World Trace" }) => {
             </Head>
             <main className=''>
                 <div className="t-center bb-solid pb-2">
-                    <img src="/images/bloomstack-logo.svg" alt="bloomstack-logo"/>
+                    <img src="/images/bloomstack-logo.svg" alt="bloomstack-logo" className="w-80p md-w-50p lg-w-30p" />
                 </div>
                 {children}
             </main>

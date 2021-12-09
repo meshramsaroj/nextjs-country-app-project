@@ -35,9 +35,9 @@ export default function Home({ countries }) {
   return (
     <Layout countries={countries}>
       <section>
-        <section className="grid-2x1 search-bar bb-solid">
+        <section className="sm-grid-2x2 search-bar bb-solid md-grid-2x1">
           <SearchBar onChange={onInputChange}></SearchBar>
-          <section className="t-right f-3 xs-f-caps fw-400 c-neutral-3 mv-20px pr-3">
+          <section className="t-center f-3 xs-f-caps fw-400 c-neutral-3 mv-20px pr-3 sm-pos-2_2 sm-col-span-2 md-pos-2_1">
             Found {` `}<CountUp start={0} end={countries.length} duration={3} useEasing={true} className="c-semantic-primary" /> {` `}countries
           </section>
         </section>
