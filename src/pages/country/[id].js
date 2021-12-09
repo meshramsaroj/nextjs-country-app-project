@@ -66,7 +66,9 @@ const Country = ({ country }) => {
                         </div>
                         <div className="grid-2x1 bb-solid bl-solid br-solid b-main-cultured-white-1 ph-2 pv-2">
                             <div className="pos-1_1 label f-2 fw-500 c-neutral-2">Gini</div>
-                            <div className="pos-2_1 value f-2 fw-600 t-right pr-2">{Object.values(country[0].gini)}%</div>
+                            <div className="pos-2_1 value f-2 fw-600 t-right pr-2">
+                                {country[0].gini ? Object.values(country[0].gini) +"%" : "NA"}
+                            </div>
                         </div>
                         <div className="grid-3x1 bb-solid bl-solid br-solid b-main-cultured-white-1 ph-2 pv-2">
                             <div className="pos-1_1 label f-2 fw-500 c-neutral-2">Google Maps</div>
@@ -77,8 +79,6 @@ const Country = ({ country }) => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }
